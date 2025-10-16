@@ -1,0 +1,91 @@
+# ------------------------- Proyecto -------------------------
+
+PROJECT_NAME           = "Comfor Termico"
+PROJECT_BRIEF          = "Máquina de estados"
+PROJECT_NUMBER         = 1.0
+OUTPUT_LANGUAGE        = Spanish
+INPUT_ENCODING         = UTF-8
+JAVADOC_AUTOBRIEF      = YES
+MULTILINE_CPP_IS_BRIEF = YES
+
+# Carpeta donde se escribirá la documentación (HTML quedará en docs_doxygen/html)
+OUTPUT_DIRECTORY       = docs_doxygen
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+GENERATE_XML           = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+
+# ------------------------- Entrada --------------------------
+
+# Analiza todo el árbol del proyecto (carpeta actual)
+INPUT                  = .
+RECURSIVE              = YES
+
+# Haz que Doxygen tome los .ino como C++
+FILE_PATTERNS          = *.ino \
+                         *.h *.hpp *.hh \
+                         *.c *.cc *.cpp
+EXTENSION_MAPPING      = ino=C++
+
+# Opcional: ignora carpetas típicas de build
+EXCLUDE_PATTERNS       = */.git/* \
+                         */.vscode/* \
+                         */build/* \
+                         */cmake-build*/* \
+                         */.pio/*
+
+# Si tienes un README.md y quieres que sea portada:
+# USE_MDFILE_AS_MAINPAGE = README.md
+
+# ---------------------- Extract/Parsing ---------------------
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_ANON_NSPACES   = YES
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+# Algunas macros de Arduino pueden confundir a doxygen; neutralízalas
+PREDEFINED             = F(x)=x \
+                         HIGH=1 LOW=0 INPUT=0 OUTPUT=1 \
+                         bitRead(a,b)=a \
+                         byte=uint8_t
+
+# ------------------------ Navegación ------------------------
+
+GENERATE_TREEVIEW      = YES
+SEARCHENGINE           = YES
+FULL_PATH_NAMES        = NO
+STRIP_FROM_PATH        = .
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+REFERENCES_RELATION    = YES
+REFERENCED_BY_RELATION = YES
+
+# ------------------------- Gráficos -------------------------
+
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg
+DOT_TRANSPARENT        = YES
+DOT_MULTI_TARGETS      = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+UML_LOOK               = YES
+CLASS_DIAGRAMS         = YES
+TEMPLATE_RELATIONS     = YES
+
+# -------------------------- Avisos --------------------------
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_LOGFILE           = doxygen.log
+
+# ------------------------ Miscelánea ------------------------
+
+TAB_SIZE               = 2
+ALIASES                =
